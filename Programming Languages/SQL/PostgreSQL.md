@@ -159,3 +159,50 @@ FROM table_name
 `MOD()` or `%`: remainder of division
 
 ## Division
+In SQL, integer division discards the remainder from the output, providing only the integer part of the result.
+
+Three methods to return decimal/float output:
+
+**`CAST()`**  
+```SQL
+SELECT 
+  CAST(10 AS DECIMAL)/4, -- 2.5000000000000000
+  CAST(10 AS FLOAT)/4,   -- 2.5
+  10/CAST(6 AS DECIMAL), -- 1.6666666666666667
+  10/CAST(6 AS FLOAT);   -- 1.6666666666666667
+```
+
+**Multiplication by 1.0**  
+```SQL
+SELECT 
+  10/6,        -- 1
+  10*1.0/6,    -- 1.6666666666666667
+  10/6*1.0,    -- 1.0
+  10/(6*1.0);  -- 1.6666666666666667
+```
+
+**::DECIMAL/::FLOAT**  
+```SQL
+SELECT 
+  10::DECIMAL/4,  -- 2.5000000000000000
+  10::FLOAT/4,    -- 2.5
+  10/4::DECIMAL,  -- 2.5000000000000000
+  10/4::FLOAT,    -- 2.5
+  10::DECIMAL/6,  -- 1.6666666666666667
+  10::FLOAT/6;    -- 1.6666666666666667
+```
+### Calculate Percentages
+
+**Without rounding**  
+`(Part / Total) * 100 AS percentage`
+
+**With rounding**  
+`((Part / Total) * 100, n) AS percentage`  
+Here `n` specify the number of decimal places to round to.
+
+### Different Ways of Representing Percentages
+`0.50`: decimal, commonly used in mathematical calculations or when precision is important.
+
+`50.0`: percentage with one decimal place, often used in reports or visualizations.
+
+## NULL

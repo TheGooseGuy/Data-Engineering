@@ -17,3 +17,5 @@ PostgreSQL
 [DataLemur](https://datalemur.com)  
 [Data Structures Handbook](https://www.thedshandbook.com)  
 [Architecture Patterns with Python](https://www.cosmicpython.com/book/preface.html)  
+[Java Full Course for free](https://www.youtube.com/watch?v=xk4_1vDrzzo)  
+
