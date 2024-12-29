@@ -7,6 +7,7 @@ Knowledge Base
 
 ### Python
 Data Structures
+Architecture Patterns
 
 ### SQL
 PostgreSQL

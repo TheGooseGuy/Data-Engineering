@@ -206,3 +206,31 @@ Here `n` specify the number of decimal places to round to.
 `50.0`: percentage with one decimal place, often used in reports or visualizations.
 
 ## NULL
+```SQL
+SELECT *
+FROM table_name
+WHERE column1 IS NULL
+```
+
+```SQL
+SELECT *
+FROM table_name
+WHERE column1 IS NOT NULL
+```
+
+> In SQL's sorting order, `NULL` takes a special place as the smallest value. When a column containing `NULL` get's sorted, these `NULL` values ascend to the top of the result.
+
+### `COALESCE()`
+This function takes multiple inputs and returns the first non-null value.
+```SQL
+COALESCE(column_name, 'expression')
+```
+If `column_name` is NULL, it returns the specified expression. Otherwise, it returns the value of `column_name`.
+
+### `IFNULL()`
+Use `IFNULL()` function to fill in the gaps with default values.
+```SQL
+IFNULL(column_name, value_if_null)
+```
+
+## `CASE` Statement
