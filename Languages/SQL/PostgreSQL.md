@@ -234,3 +234,75 @@ IFNULL(column_name, value_if_null)
 ```
 
 ## `CASE` Statement
+### Use `CASE` Statement in `SELECT`
+```SQL
+SELECT
+  column_1,
+  column_2, 
+  CASE 
+    WHEN condition_1 THEN result_1
+    WHEN condition_2 THEN result_2
+    WHEN ... THEN ...
+    ELSE result_3 -- If condition_1 and condition_2 are not met, return result_3 in ELSE clause
+  END AS column_3_name -- Give your new column an alias
+FROM table_1;  
+```
+### Use `CASE` in `WHERE`
+```SQL
+SELECT
+  column_1,
+  column_2
+FROM table_1
+WHERE CASE 
+    WHEN condition_1 THEN result_1
+    WHEN condition_2 THEN result_2
+    WHEN ... THEN ...
+    ELSE result_3 -- If condition_1 and condition_2 are not met, return result_3 in ELSE clause
+  END; 
+```
+### Counting Results with `CASE` in `COUNT()`
+```SQL
+SELECT
+  platform,
+  COUNT(CASE 
+    WHEN followers >= 500000 THEN 1
+    ELSE NULL
+  END) AS popular_actor_count,
+  COUNT(CASE 
+    WHEN followers < 500000 THEN 1
+    ELSE NULL
+  END) AS less_popular_actor_count
+FROM marvel_avengers
+GROUP BY platform;
+```
+### Adding Results with `CASE` in `SUM()`
+```SQL
+SELECT
+  platform,
+  SUM(CASE 
+    WHEN engagement_rate >= 8.0 THEN followers
+    ELSE 0
+  END) AS high_engagement_followers_sum,
+  SUM(CASE 
+    WHEN engagement_rate < 8.0 THEN followers
+    ELSE 0
+  END) AS low_engagement_followers_sum
+FROM marvel_avengers
+GROUP BY platform;
+```
+### Averaging Results with `CASE` in `AVG()`
+```SQL
+SELECT
+  platform,
+  AVG(CASE 
+    WHEN engagement_rate >= 8.0 THEN followers
+    ELSE NULL
+  END) AS avg_high_engagement_followers,
+  AVG(CASE 
+    WHEN engagement_rate < 8.0 THEN followers
+    ELSE NULL
+  END) AS avg_low_engagement_followers
+FROM marvel_avengers
+GROUP BY platform;
+```
+## `JOIN`
