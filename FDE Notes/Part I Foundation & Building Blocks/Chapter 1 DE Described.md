@@ -41,7 +41,7 @@ Data maturity is a helpful guide to understanding the types of data challenges a
 ## Technical Responsibilities
 DE must understand how to build architectures that optimize performance and cost at a high level, using prepackaged or homegrown components. 
 
-**Language**:  
+**Languages**:  
 Primary: SQL, Python, Java, Bash  
 Secondary: R, JS, Go, Rust, C/C++, Julia
 
