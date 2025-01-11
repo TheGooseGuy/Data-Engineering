@@ -306,3 +306,21 @@ FROM marvel_avengers
 GROUP BY platform;
 ```
 ## `JOIN`
+To combine multiple tables.
+
+```SQL
+SELECT *
+FROM table_name
+JOIN table_to_be_joined
+  ON table_name.column = table_to_be_joined.column
+```
+
+Four Types of SQL Joins: INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN
+
+Do not user right join.
+
+INNER JOIN returns only the rows with matching values from both tables.  
+LEFT JOIN: all rows from the left table are fetched, along with matching rows from the right table. If there is not matching data in the right table, the result will still include the left table's data with `NULL` values in the columns from the right table.  
+FULL OUTER JOIN: returns all rows when there is a match in either the left or the right table. If there is no match, `NULL` values are returned for columns from the table without a match. (Can introduce duplicate rows)
+
+## Date Functions
