@@ -324,3 +324,67 @@ LEFT JOIN: all rows from the left table are fetched, along with matching rows fr
 FULL OUTER JOIN: returns all rows when there is a match in either the left or the right table. If there is no match, `NULL` values are returned for columns from the table without a match. (Can introduce duplicate rows)
 
 ## Date Functions
+`CURRENT_DATE`: Returns today's date  
+    e.g.: 06/04/1989 00:00:00
+
+`CURRENT_TIME`: Returns the current time without the date  
+    e.g.: 07:35:15.989933+00
+  
+`CURRENT_TIMESTAMP` or `NOW()`: Returns the current date and time  
+    e.g.: 06/04/1989 07:35:15
+
+- Greater than (`>`) and Less than (`<`) can be used to compare date, also `>=`, `<=`, `=`
+
+### Extracting parts in a date
+```SQL
+SELECT
+  EXTRACT(YEAR FROM sent_date) AS extracted_year,
+FROM table_name
+```
+
+### Truncating Date and Time
+The `DATE_TRUNC()` rounds down a date or timestamp to a specific unit of time. 
+```SQL
+SELECT
+  DATE_TRUNC('month', sent_date) AS truncated_to_month
+FROM table name
+```
+
+### Adding and Subtracting Intervals
+```SQL
+SELECT
+  sent_date + INTERVAL '2 days' AS add_2days
+```
+
+### Formatting dates in SQL
+`TO_CHAR()` converts a date or timestamp to a string with a specified format.
+|Format Name|Format|Example|
+|-------|------|------|
+|ISO 8601 Date and Time|'YYYY-MM-DD HH24:MI:SS'|'1989-06-04 14:30:00'|
+|Date and Time with 12-hour Format|'YYYY-MM-DD HH:MI:SS AM'|'1989-06-04 02:30:00 PM'|
+|Long Month Name, Day and Year|'Month DDth, YYYY'|'June 4th, 1989'|
+|Short Month Name, Day and Year|'Mon DD, YYYY'|'Jun 04, 1989'|
+|Day, Month, and Year|'DD Month YYYY'|'04 June 1989'|
+|Day of the Month|'Month'|'June'|
+|Day of the Week|'Day'|'Sunday'|
+
+```SQL
+SELECT
+  TO_CHAR(sent_date, 'YYYY-MM-DD HH:MI:SS') AS formatted_iso8601
+FROM table_name
+```
+
+### Casting Strings into Date and Timestamp in SQL
+
+`::DATE` or `TO_DATE()`: Convert strings into dates.
+`::TIMESTAMP` or `TO_TIMESTAMP()`: Convert strings into timestamps.
+```SQL
+SELECT 
+  sent_date,
+  sent_date::DATE AS casted_date,
+  TO_DATE('2023-08-27', 'YYYY-MM-DD') AS converted_to_date,
+  sent_date::TIMESTAMP AS casted_timestamp,
+  TO_TIMESTAMP('2023-08-27 10:30:00', 'YYYY-MM-DD HH:MI:SS') AS converted_to_timestamp
+FROM messages
+LIMIT 3;
+```
