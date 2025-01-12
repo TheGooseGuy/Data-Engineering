@@ -359,7 +359,7 @@ SELECT
 ### Formatting dates in SQL
 `TO_CHAR()` converts a date or timestamp to a string with a specified format.
 |Format Name|Format|Example|
-|-------|------|------|
+|-----------|------|-------|
 |ISO 8601 Date and Time|'YYYY-MM-DD HH24:MI:SS'|'1989-06-04 14:30:00'|
 |Date and Time with 12-hour Format|'YYYY-MM-DD HH:MI:SS AM'|'1989-06-04 02:30:00 PM'|
 |Long Month Name, Day and Year|'Month DDth, YYYY'|'June 4th, 1989'|
