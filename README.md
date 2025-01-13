@@ -1,23 +1,18 @@
 # Data-Engineering
 Knowledge Base 
-
-Table of Content
-
 # AWS
-
 Cloud practitioner  
 Data Engineer Associate
-
+# Fundamentals of Data Engineering
 # Programming Languages
 
-## Python
-Data Structures  
-Architecture Patterns
+Java  
 
-## SQL
-PostgreSQL
+Python  
+- Architecture Patterns
 
-## Java
+SQL
+- PostgreSQL
 
 # References
 [DataLemur](https://datalemur.com)  
