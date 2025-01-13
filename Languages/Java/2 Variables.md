@@ -15,5 +15,23 @@
 // To create a variable
 
 int x = 123; // declaration + assignment = initialization
+double y = 3.14;
+boolean z = true;
+char symbol = '@';
+String name = "Goose";
+
 system.out.print("My variable is: " + x);
 ```
+
+# To Swap Two Variables
+```Java
+String x = "water";
+String y = "acid";
+String temp;
+
+temp = x;
+x = y
+y = temp
+
+System.out.println("x: " + x)
+System.out.println("y: " + y)
