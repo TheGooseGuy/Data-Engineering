@@ -28,3 +28,23 @@ Schemaless: the application defines the schema as data is written.
 Fixed schema
 
 ## Storage
+### Evaluating Storage System
+To choose a storage system (things to consider):
+1. Is this storage solution compatible with the architecture’s required write and read speeds?
+2. Will storage create a bottleneck for downstream processes?
+3. Do you understand how this storage technology works? Are you utilizing the storage system optimally or committing unnatural acts? For instance, are you applying a high rate of random access updates in an object storage system? (This is an antipattern with significant performance overhead.)
+4. Will this storage system handle anticipated future scale? You should consider all capacity limits on the storage system: total available storage, read operation rate, write volume, etc.
+5. Will downstream users and processes be able to retrieve data in the required service-level agreement (SLA)?
+6. Are you capturing metadata about schema evolution, data flows, data lineage, and so forth? Metadata has a significant impact on the utility of data. Metadata represents an investment in the future, dramatically enhancing discoverability and institutional knowledge to streamline future projects and architecture changes.
+7. Is this a pure storage solution (object storage), or does it support complex query patterns (i.e., a cloud data warehouse)?
+8. Is the storage system schema-agnostic (object storage)? Flexible schema (Cassandra)? Enforced schema (a cloud data warehouse)?
+9. How are you tracking master data, golden records data quality, and data lineage for data governance? (We have more to say on these in “Data Management”.)
+10. How are you handling regulatory compliance and data sovereignty? For example, can you store your data in certain geographical locations but not others?
+
+### Data Access Frequency
+Not all data is accessed in the same way. Retrieval patterns / data access freqeuncy determines the "temperature" of data.
+
+Hot data: most frequently accessed  
+Cold data: seldom queried and is appropriate for storing in an archival system.
+
+## Ingestion
