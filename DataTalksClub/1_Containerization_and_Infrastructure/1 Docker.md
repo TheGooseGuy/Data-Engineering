@@ -6,3 +6,4 @@ Why docker?
 - Spark
 - Serverless (AWS Lambda, ...)
 
+`docker run -it test:pandas 1989-06-04`
