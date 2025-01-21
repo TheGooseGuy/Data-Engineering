@@ -388,3 +388,10 @@ SELECT
 FROM messages
 LIMIT 3;
 ```
+
+# Advanced SQL
+## CTE vs. SUBQUERY
+CTE: Common Table Expressions (query within query, `WITH` Statement)
+
+### Advantages of CTE
+1. Breaking down complex queries
