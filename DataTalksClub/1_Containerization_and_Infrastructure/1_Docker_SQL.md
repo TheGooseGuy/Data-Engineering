@@ -14,12 +14,21 @@ wget https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yell
 ```
 
 Run Postgres with Docker:
-```Bash
+```Docker
 docker run -it \
   -e POSTGRES_USER="root" \
   -e POSTGRES_PASSWORD="root" \
   -e POSTGRES_DB="ny_taxi" \
-  -v c:/Users/alexe/git/data-engineering-zoomcamp/week_1_basics_n_setup/2_docker_sql/ny_taxi_postgres_data:/var/lib/postgresql/data \
-  -p 5432:5432 \
+  -v $(pwd)/ny_taxi_postgres_data:/var/lib/postgresql/data \
+  -p 5432:5432
   postgres:13
+```
+
+Show current running servers
+```Bash
+sudo docker ps
+```
+
+```Bash
+$ pgcli -h localhost -p 5432 -u root -d ny_taxi
 ```
